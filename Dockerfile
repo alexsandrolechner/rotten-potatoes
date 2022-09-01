@@ -1,7 +1,7 @@
-FROM python:3.8-slim-buster
-WORKDIR /app
+FROM python:3.6.1-alpine
+RUN pip install --upgrade pip
 
-RUN python3 -m pip install --upgrade pip
+WORKDIR /app
 
 COPY ./src/requirements.txt /app/
 RUN pip install -r requirements.txt
@@ -14,4 +14,4 @@ ENV MONGODB_PORT=$MONGODB_PORT
 ENV MONGODB_USERNAME=$MONGODB_USERNAME
 ENV MONGODB_PASSWORD=$MONGODB_PASSWORD
 
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+CMD ["python","app.py"]

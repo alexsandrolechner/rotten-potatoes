@@ -9,4 +9,5 @@ MONGODB_USERNAME => Usuário do MongoDB
 MONGODB_PASSWORD => Senha do MongoDB
 
 Comand:
+ docker-compose --env-file .env up
  docker-compose --env-file ./.env up -d
